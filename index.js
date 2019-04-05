@@ -5,7 +5,7 @@ const wss = new WebSocket.Server({ port: 8080 });
 let i = 0;
 let matches = {};
 
-console.log(process.env);
+console.log(process.env.PORT);
 
 function addToMatch(ws) {
   if (matches[i] === undefined) {
