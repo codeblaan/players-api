@@ -30,7 +30,11 @@ function addToMatch(ws) {
 }
 
 function send(ws, obj) {
-  ws.send(JSON.stringify(obj));
+  if (ws.readyState === WebSocket.OPEN) {
+    ws.send(JSON.stringify(obj));
+  } else {
+    console.log('websocket no longer open...');
+  }
 }
 
 wss.on('connection', ws => {
