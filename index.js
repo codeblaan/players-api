@@ -1,11 +1,11 @@
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({ port: 8080 });
+const PORT = process.env.PORT || 8080;
+console.log('PORT:', PORT);
+const wss = new WebSocket.Server({ port: PORT });
 
 let i = 0;
 let matches = {};
-
-console.log(process.env.PORT);
 
 function addToMatch(ws) {
   if (matches[i] === undefined) {
